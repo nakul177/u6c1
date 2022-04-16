@@ -1,0 +1,47 @@
+{
+  "city": [
+    {
+      "country_name": "aa",
+      "city_name": "aa",
+      "population": "12",
+      "id": 1
+    },
+    {
+      "country_name": "nakul",
+      "city_name": "nakyul",
+      "population": "122",
+      "id": 2
+    },
+    {
+      "country_name": "aasdd",
+      "city_name": "dswws",
+      "population": "sdd",
+      "id": 3
+    },
+    {
+      "country_name": "dsdf",
+      "city_name": "cfcv ",
+      "population": "dvg",
+      "id": 4
+    },
+    {
+      "country_name": "aaas",
+      "city_name": "sss",
+      "population": "sss",
+      "id": 5
+    },
+    {
+      "country_name": "aasd",
+      "city_name": "asd",
+      "population": "asd",
+      "id": 6
+    },
+    {
+      "country_name": "aass",
+      "city_name": "zsddd",
+      "population": "addd",
+      "id": 7
+    }
+  ],
+  "country": []
+}
