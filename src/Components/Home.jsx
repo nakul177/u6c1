@@ -9,12 +9,12 @@ import Paper from '@mui/material/Paper';
 import { AppBar, Box, Button, Toolbar } from '@mui/material';
 import { Link } from 'react-router-dom';
 import { useSelector , useDispatch} from 'react-redux';
-import {get_city} from "../Redux/City/action.js"
+import {get_city_data} from "../Redux/City/action.js"
 export const Home = () => {
   const {city} = useSelector((state) => state.city) 
 const disptach = useDispatch()
   useEffect(() =>{
-disptach(get_city())
+disptach(get_city_data())
   },[])
 
   return (

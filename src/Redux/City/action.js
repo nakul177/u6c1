@@ -20,6 +20,20 @@ export const Ctiy_Get = (payload) =>(
 export  const get_city = (details) => (dispatch) => {
     dispatch(Ctiy_Loading());
     fetch(`http://localhost:3001/city`, {
+      method: "POST",
+      body: JSON.stringify(details),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    })
+      .then((res) => res.json())
+      .then((res) => dispatch(Ctiy_Get(res)))
+      .catch((err) => dispatch(Ctiy_Err()));
+  };
+
+  export  const get_city_data= (details) => (dispatch) => {
+    dispatch(Ctiy_Loading());
+    fetch(`http://localhost:3001/city`, {
       method: "GET",
       body: JSON.stringify(details),
       headers: {
