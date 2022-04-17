@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
@@ -8,15 +8,21 @@ import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import { AppBar, Box, Button, Toolbar } from '@mui/material';
 import { Link } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+import { useSelector , useDispatch} from 'react-redux';
+import {get_city} from "../Redux/City/action.js"
 export const Home = () => {
   const {city} = useSelector((state) => state.city) 
+const disptach = useDispatch()
+  useEffect(() =>{
+disptach(get_city())
+  },[])
+
   return (
     <>
     <AppBar>
-      <Toolbar sx={{backgroundColor:"white"}}>
-      <Link style={{textDecoration:"none"}} to={"/add-country"}>  <Button variant='outlined'>Add Country</Button></Link>
-      <Link style={{textDecoration:"none"}}to={"/add-city"}> <Button variant='outlined' sx={{marginLeft:"10px"}}>Add City</Button></Link>
+      <Toolbar sx={{backgroundColor:"lightgreen" }}>
+      <Link style={{textDecoration:"none" }} to={"/add-country"}>  <Button variant='outlined' sx={{ marginLeft:"500px" , color:"black"}}>Add Country</Button></Link>
+      <Link style={{textDecoration:"none"}}to={"/add-city"}> <Button variant='outlined' sx={{marginLeft:"200px" , color:"black"}}>Add City</Button></Link>
       </Toolbar>
     </AppBar>
     <Box sx={{width:"90%" , margin:"auto" , marginTop:"100px"}}>
@@ -33,19 +39,19 @@ export const Home = () => {
           </TableRow>
         </TableHead>
         <TableBody>
-          {city.map((row) => (
+          {city.map((el) => (
             <TableRow
-              key={row.name}
-              sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
+              key={el.id}
+              sx={{ 'td,tr,th': { border: "1px solid black" } }}
             >
               <TableCell component="th" scope="row">
-               
+               {el.id}
               </TableCell>
-              <TableCell align="center"></TableCell>
-              <TableCell align="center"></TableCell>
-              <TableCell align="center"></TableCell>
-              <TableCell align="center"><Button variant='outlined'>Edit</Button></TableCell>
-              <TableCell align="center"><Button variant='outlined'>Delete</Button></TableCell>
+              <TableCell align="center">{el.country_name}</TableCell>
+              <TableCell align="center">{el.city_name}</TableCell>
+              <TableCell align="center">{el.population}</TableCell>
+              <TableCell align="center"><Button variant='outlined' sx={{ color:"black"}}>Edit</Button></TableCell>
+              <TableCell align="center"><Button variant='outlined' sx={{ color:"black"}}>Delete</Button></TableCell>
             </TableRow>
           ))}
         </TableBody>

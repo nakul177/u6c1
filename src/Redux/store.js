@@ -19,7 +19,7 @@ const enhancer = composeEnhancers(
 
 export const root_reducer = combineReducers({
   city:City_Reducer,
-  Country:Country_Reducer
+  country:Country_Reducer
 })
 
 export const store = createStore(root_reducer ,  enhancer)

@@ -20,7 +20,7 @@ export const Ctiy_Get = (payload) =>(
 export  const get_city = (details) => (dispatch) => {
     dispatch(Ctiy_Loading());
     fetch(`http://localhost:3001/city`, {
-      method: "POST",
+      method: "GET",
       body: JSON.stringify(details),
       headers: {
         "Content-Type": "application/json",
